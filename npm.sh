@@ -1,7 +1,8 @@
 #!/bin/bash
 DIR=$(pwd)
 
-ctr -n cli.io run --rm --net-host \
-    --mount type=bind,src="$DIR",dist=/app,options=rbind:rw \
+ctr --namespace cli.io run --net-host --rm \
+    --mount type=bind,src="$DIR",dst=/app,options=rbind:rw \
+    --cwd /app \
     docker.io/library/node:latest node \
     npm $@
