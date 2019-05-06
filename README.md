@@ -1,0 +1,1 @@
+# Repository used as a template to a node project
